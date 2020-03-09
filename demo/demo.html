@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Map Demo</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<div id="map">
+		<!-- <img src="images/AQI指标条形图.png" style="z-index:999;position: fixed" /> -->
+	</div>
+	<table id='latlng'></table>
+
+	<!--vendor-->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.1.0/dist/leaflet.css" />
+	<script src="https://npmcdn.com/leaflet@1.1.0/dist/leaflet.js"></script>
+
+	<!--leaflet-velocity 风向图-->
+	<link rel="stylesheet" href="../dist/velocity/leaflet-velocity.css" />
+	<script src="../dist/velocity/leaflet-velocity.js"></script>
+
+	<!-- heatmap 热力图 -->
+	<script src="../dist/heatmap/heatmap.js"></script>
+	<script src="../dist/heatmap/leaflet-heatmap.js"></script>
+
+	<!-- idw 插值图 -->
+	<script src="../dist/idw/leaflet-idw.js"> </script>
+
+	<!-- 等值线 -->
+	<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
+	<!-- AQI -->
+	<script src="../dist/AQI/leaflet-bubbles.js"></script>
+
+	<!-- pie chart -->
+	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+	<!-- leaflet search -->
+	<script src="../dist/search/leaflet-search.js"></script>
+	<script src="../dist/search/leaflet-search-geocoder.js"></script>
+	<link rel="stylesheet" href="../dist/search/leaflet-search.css" />
+	<link rel="stylesheet" href="../dist/search/leaflet-search.mobile.css" />
+	<link rel="stylesheet" href="../dist/search/style.css" />
+
+    <!-- leaflet draw -->
+	<!-- <script src="../node_modules/leaflet-draw/docs/examples/libs/leaflet-src.js"></script>
+    <link rel="stylesheet" href="../node_modules/leaflet-draw/docs/examples/libs/leaflet.css" /> -->
+
+	<script src="../dist/draw/Leaflet.draw.js"></script>
+	<script src="../dist/draw/Leaflet.Draw.Event.js"></script>
+	<link rel="stylesheet" href="../dist/draw/leaflet.draw.css" />
+
+	<script src="../dist/draw/Toolbar.js"></script>
+	<script src="../dist/draw/Tooltip.js"></script>
+
+	<script src="../dist/draw/ext/GeometryUtil.js"></script>
+	<script src="../dist/draw/ext/LatLngUtil.js"></script>
+	<script src="../dist/draw/ext/LineUtil.Intersect.js"></script>
+	<script src="../dist/draw/ext/Polygon.Intersect.js"></script>
+	<script src="../dist/draw/ext/Polyline.Intersect.js"></script>
+	<script src="../dist/draw/ext/TouchEvents.js"></script>
+
+	<script src="../dist/draw/draw/DrawToolbar.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Feature.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.SimpleShape.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Polyline.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Marker.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Circle.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.CircleMarker.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Polygon.js"></script>
+	<script src="../dist/draw/draw/handler/Draw.Rectangle.js"></script>
+
+
+	<script src="../dist/draw/edit/EditToolbar.js"></script>
+	<script src="../dist/draw/edit/handler/EditToolbar.Edit.js"></script>
+	<script src="../dist/draw/edit/handler/EditToolbar.Delete.js"></script>
+
+	<script src="../dist/draw/Control.Draw.js"></script>
+
+	<script src="../dist/draw/edit/handler/Edit.Poly.js"></script>
+	<script src="../dist/draw/edit/handler/Edit.SimpleShape.js"></script>
+	<script src="../dist/draw/edit/handler/Edit.Rectangle.js"></script>
+	<script src="../dist/draw/edit/handler/Edit.Marker.js"></script>
+	<script src="../dist/draw/edit/handler/Edit.CircleMarker.js"></script>
+	<script src="../dist/draw/edit/handler/Edit.Circle.js"></script>
+
+	<!-- isoline-->
+	<script src="../data/isoline-test.js"></script>
+	<script src="../dist/isoline/leaflet-isoline.js"></script>
+
+	<script src="../dist/search/leaflet-search.js"></script>
+
+	<!--timeline 在demojs加载前定义timeline-->
+	<script src="./script/timtline_data_fake.js"></script>
+	<script src="./script/ControlTimeLine.js"></script>
+
+	<!--demo-->
+	<link rel="stylesheet" href="css/demo.css" />
+	<link rel="stylesheet" href="css/ComputePopup.css" />
+	<script src="script/ComputePopup.js"></script>
+	<script src="script/demo.js"></script>
+
+	<!--timeline css 放在前面有些样式会被democss覆盖-->
+	<link rel="stylesheet" href="css/timeline.css" />
+	<script src="script/ControlTimelineAnimation.js"></script>
+
+	<!-- layer -->
+	<script src="script/Addlayer.js"></script>
+	<script src="script/ConventionalSixItems.js"></script>
+	<!-- Gadget -->
+	<script src="../data/geoinfo.js"></script>
+	<script src="script/Gadget.js"></script>
+
+
+
+</body>
+
+</html>

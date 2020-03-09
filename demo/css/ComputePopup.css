@@ -1,0 +1,194 @@
+/* 最外面的大框 */
+.compute-popup {
+    max-width: 420px;
+    max-height: 192px;
+    border: 1px solid #1e1e1e;
+    border-radius: 4px;
+    background: #1e1e1e;
+}
+
+/* 大框内上面的标题是一个div，下面的内容是一个div */
+#popup-bottom {
+    display: flex;
+}
+
+/* 大标题 */
+#popup-title-max {
+    border-radius: 2px;
+    background-color: #272727;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 420px;
+    padding: 3px;
+}
+
+/* 大标题内右边的标题：首要污染物 */
+/* #popup-title-max span {
+    align-items: center; */
+/* width: 100px;
+} */
+
+/* 标题：首要污染物、六项污染物 */
+.popup-title {
+    /* display: inline; */
+    font-size: 11px;
+    color: #d4d4d4;
+    margin-left: 50px;
+}
+
+/* 具体的主要污染物 */
+#main-pollutants {
+    font-size: 11px;
+    color: #d4d4d4;
+}
+
+/* 关闭按钮 */
+#popup-close {
+    margin-right: 3px;
+    margin-top: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+/* 左边 */
+#popup-span-left {
+    width: 160px;
+    border-radius: 6px;
+}
+
+/* 日按钮 */
+#day-button {
+    height: 18px;
+    border-radius: 1.5px;
+    border: 0.1px solid #d4d4d4;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-size: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+/* 时按钮 */
+#hour-button {
+    height: 18px;
+    border-radius: 1.5px;
+    font-size: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ff67ba;
+    border: 0.1px solid #d4d4d4;
+    color: #1e1e1e;
+    margin-right: 0;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+/* 六项污染物的值 */
+.div-value {
+    margin: 2px;
+    display: flex;
+    margin-left: 7px;
+}
+
+/* 六项污染物输入左边的提示文字 */
+.div-value p {
+    width: 67px;
+    border: 0.1px solid #d4d4d4;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #d4d4d4;
+    padding-top: 2px;
+    /* padding-bottom: 1px; */
+    margin-top: 3px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+/* 六项污染物的输入框 */
+.div-value input {
+    outline-style: none;
+    border: none;
+    width: 28px;
+    font-size: 11px;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    margin-left: 1px;
+}
+
+/* 计算按钮 */
+#button-caculate {
+    width: 136px;
+    border-radius: 1.5px;
+    border: none;
+    background-color: #ff67ba;
+    color: #1e1e1e;
+    font-size: 10px;
+    margin-bottom: 12px;
+    margin-top: 5px;
+    padding: 4px;
+}
+
+/* 分隔符 */
+.div-value img {
+    width: 1.4%;
+    vertical-align: middle;
+    padding-bottom: 2px;
+}
+
+#popup-span-right {
+    width: 260px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* 右边字体 */
+#popup-span-right p {
+    color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+}
+
+/* 右边上半部分 */
+#popup-span-right div {
+    width: 260px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 12px;
+}
+
+/* 指数名称和指数值 */
+#popup-span-right span {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 指数名称 */
+.composite-index-word {
+    font-size: 10px;
+}
+
+/* 指数值 */
+.composite-index-value {
+    font-size: 16px;
+}
+
+/* 占比饼图 */
+#div-value-chart {
+    padding: 0;
+    margin: 0;
+    width: 232px;
+    height: 100px;
+    margin-bottom: 10px;
+}

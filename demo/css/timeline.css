@@ -1,0 +1,61 @@
+/*search暂时隐藏*/
+.leaflet-control-search{
+    display: none;
+}
+
+
+
+/*单个control最外层容器*/
+.leaflet-touch .leaflet-control-layers{
+    background: rgba(0,0,0,0.6);
+    width: 25px;
+    margin: 0 0;
+    border: 0;
+    border-radius: 0;
+}
+/*control按钮*/
+.leaflet-retina .leaflet-control-layers-toggle{
+    background: url("../asset/earth.svg") no-repeat 5px 12px;
+    background-size: 55%;
+    width: 30px;
+    height: 40px;
+
+}
+/*control展开后item容器*/
+.leaflet-control-layers-base{
+    background: rgba(100,20,3,0.6);
+    display: block;
+
+}
+.leaflet-control-layers-list{
+    background: rgba(1,200,3,0.6);
+}
+/*control item*/
+.leaflet-control-layers-selector{
+    display: block;
+    background: rgba(1,2,222,1);
+    height: 0;
+    /*transition: height 0.8s;*/
+}
+.leaflet-control-layers{
+    display: none;
+}
+.onselect{
+    background: rgba(201,131,7,1);
+}
+
+
+
+
+
+/*TIMELINE*/
+.range {
+    background: rgba(0,0,0,.6);
+    width: 350px;
+    height:0;
+}
+#rangeinputslide{
+    /*-webkit-appearance: none;*/
+    /*background: rgba(225,2,225,.8);*/
+    /*height: 1px;*/
+}

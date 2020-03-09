@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Popup</title>
+    <meta charset="utf-8">
+    <style>
+        /* 最外面的大框 */
+        .compute-popup {
+            max-width: 420px;
+            max-height: 192px;
+            border: 1px solid #1e1e1e;
+            border-radius: 4px;
+            background: #1e1e1e;
+        }
+
+        /* 大框内上面的标题是一个div，下面的内容是一个div */
+        #popup-bottom {
+            display: flex;
+        }
+
+        /* 大标题 */
+        #popup-title-max {
+            border-radius: 2px;
+            background-color: #272727;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 420px;
+            padding: 3px;
+        }
+
+        /* 大标题内右边的标题：首要污染物 */
+        /* #popup-title-max span {
+            align-items: center; */
+        /* width: 100px;
+        } */
+
+        /* 标题：首要污染物、六项污染物 */
+        .popup-title {
+            /* display: inline; */
+            font-size: 11px;
+            color: #d4d4d4;
+            margin-left: 50px;
+        }
+
+        /* 具体的主要污染物 */
+        #main-pollutants {
+            font-size: 11px;
+            color: #d4d4d4;
+        }
+
+        /* 关闭按钮 */
+        #popup-close {
+            margin-right: 3px;
+            margin-top: 5px;
+            width: 10px;
+            height: 10px;
+        }
+
+        /* 左边 */
+        #popup-span-left {
+            width: 160px;
+            border-radius: 6px;
+        }
+
+        /* 日按钮 */
+        #day-button {
+            border-radius: 1.5px;
+            border: 0.1px solid #d4d4d4;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-size: 11px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 0;
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+
+        /* 时按钮 */
+        #hour-button {
+            border-radius: 1.5px;
+            font-size: 11px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: #ff67ba;
+            border: 0.1px solid #d4d4d4;
+            color: #1e1e1e;
+            margin-left: 11px;
+            margin-right: 0;
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+
+        /* 六项污染物的值 */
+        .div-value {
+            margin: 2px;
+            display: flex;
+            margin-left: 7px;
+        }
+
+        /* 六项污染物输入左边的提示文字 */
+        .div-value p {
+            width: 66px;
+            border: 0.1px solid #d4d4d4;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #d4d4d4;
+            /* padding-top: 1px;
+            padding-bottom: 1px; */
+            margin-top: 3px;
+            margin-bottom: 3px;
+            margin-left: 4px;
+        }
+
+        /* 六项污染物的输入框 */
+        .div-value input {
+            outline-style: none;
+            border: none;
+            width: 27px;
+            font-size: 11px;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        /* 计算按钮 */
+        #button-caculate {
+            width: 140px;
+            border-radius: 1.5px;
+            border: none;
+            background-color: #ff67ba;
+            color: #1e1e1e;
+            font-size: 10px;
+            margin-bottom: 12px;
+            margin-left: 9px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+
+        /* 分隔符 */
+        .div-value img {
+            width: 1.3%;
+            vertical-align: middle;
+            padding-bottom: 2px;
+        }
+
+        #popup-span-right {
+            width: 260px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        /* 右边字体 */
+        #popup-span-right p {
+            color: #d4d4d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 右边上半部分 */
+        #popup-span-right div {
+            width: 260px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-top: 12px;
+        }
+
+        /* 指数名称和指数值 */
+        #popup-span-right span {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* 指数名称 */
+        .composite-index-word {
+            font-size: 10px;
+        }
+
+        /* 指数值 */
+        .composite-index-value {
+            font-size: 16px;
+        }
+
+        /* 占比饼图 */
+        #div-value-chart {
+            padding: 0;
+            margin: 0;
+            width: 232px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- <script src="../dist/Pie/wtinychartunmin.js"></script> -->
+    <div class='compute-popup'>
+
+        <div id='popup-title-max'>
+            <span class='popup-title'>六项污染物</span>
+            <span>
+                <span class='popup-title'>首要污染物</span>
+                <span id='main-pollutants'>SO2</span>
+            </span>
+            <img id='popup-close' src='images/close.png'>
+        </div>
+
+        <div id='popup-bottom'>
+            <div id='popup-span-left'>
+                <div style='padding-top: 12px;'>
+                    <button type='button' id='hour-button'>时</button>
+                    <button type='button' id='day-button'>日</button>
+                </div>
+                <div class='div-value'>
+                    <p> PM2.5 <img src='images/line2.eps'><input type='text'></p>
+                    <p> PM10 <img src='images/line2.eps'><input type='text'></p>
+                </div>
+                <div class='div-value'>
+                    <p>&ensp;&ensp;O3&ensp; <img src='images/line2.eps'><input type='text'></p>
+                    <p>&ensp;CO&ensp; <img src='images/line2.eps'><input type='text'></p>
+                </div>
+                <div class='div-value'>
+                    <p> &ensp;SO2&ensp; <img src='images/line2.eps'><input type='text'></p>
+                    <p> NO2&ensp; <img src='images/line2.eps'><input type='text'></p>
+                </div>
+                <button id='button-caculate'>计算</button>
+            </div>
+            <div id='popup-span-right'>
+                <div>
+                    <span>
+                        <p class='composite-index-value'>78.23</p>
+                        <p class='composite-index-word'> 综合指数</p>
+                    </span>
+                    <span style='width: 0.7px;height: 35px; background: #d4d4d4;'></span>
+                    <span>
+                        <p class='composite-index-value'>89</p>
+                        <p class='composite-index-word'> AQI指数</p>
+                    </span>
+                </div>
+                <div id='div-value-chart'></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('div-value-chart'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '55%',
+                    clockwise: false,//饼图是否顺时针排列
+                    center: ['50%', '50%'],//圆心的位置
+                    data: [
+                        { value: 235, name: 'PM2.5' },
+                        { value: 804, name: 'PM10' },
+                        { value: 310, name: 'CO' },
+                        { value: 335, name: 'SO2' },
+                        { value: 400, name: 'O3' },
+                        { value: 400, name: 'NO2' }
+                    ],
+                    roseType: 'angle',
+                    itemStyle: {
+                        normal: {
+                            shadowBlur: 200,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    color: ['#834a13', '#bcbcb7', '#6f1282', '#085ca3', '#6d6912', '#0ea37f'],
+                    //设置值域的标签
+                    label: {
+                        normal: {
+                            position: 'outer',  // 设置标签位置，默认在饼状图外 可选值：'outer' ¦ 'inner（饼状图上）'
+                            formatter: '{b} : {d}%',   //设置标签显示内容 ，默认显示{b}
+                            // {a}指series.name  {b}指series.data的name
+                            // {c}指series.data的value  {d}%指这一部分占总数的百分比
+                            textStyle: {
+                                fontSize: 10,   //文字的字体大小
+                                color: '#d4d4d4'
+                            },
+                        }
+                    }
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
