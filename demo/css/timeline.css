@@ -1,8 +1,26 @@
 /*search暂时隐藏*/
 .leaflet-control-search{
+    /*display: none;*/
+}
+
+/*覆盖leaflet原有样式 使右上选项栏保持展开状态*/
+.leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+     display: block;
+    padding: 3px;
+    color: #333;
+    position: relative;
+}
+.leaflet-control-layers-separator{
     display: none;
 }
 
+/*右上位置*/
+.leaflet-right {
+    right: 20px;
+}
+.leaflet-top {
+    top: 40px;
+}
 
 
 /*单个control最外层容器*/
@@ -12,50 +30,201 @@
     margin: 0 0;
     border: 0;
     border-radius: 0;
+    padding: 3px;/*6px 10px 6px 6px*/
+    color: #333;
 }
 /*control按钮*/
 .leaflet-retina .leaflet-control-layers-toggle{
-    background: url("../asset/earth.svg") no-repeat 5px 12px;
-    background-size: 55%;
-    width: 30px;
-    height: 40px;
-
-}
-/*control展开后item容器*/
-.leaflet-control-layers-base{
-    background: rgba(100,20,3,0.6);
-    display: block;
-
-}
-.leaflet-control-layers-list{
-    background: rgba(1,200,3,0.6);
+    /*background: url("../asset/earth.svg") no-repeat 5px 12px;*/
+    display: none;
 }
 /*control item*/
 .leaflet-control-layers-selector{
     display: block;
-    background: rgba(1,2,222,1);
     height: 0;
     /*transition: height 0.8s;*/
 }
-.leaflet-control-layers{
-    display: none;
+label span{
+    color: #f1f1f1;
+    font-weight: lighter;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    text-shadow: 0 0 4px black;
+    border-radius: 20px;
+    padding: 1px 5px;
+    box-sizing: border-box;
 }
-.onselect{
-    background: rgba(201,131,7,1);
+label span:hover{
+    background-color: rgba(0,0,0,0.6);
+    transition: background-color .3s;
+}
+label input[type=checkbox],label input[type=radio]{
+    opacity: 0;
+    position: relative;
+    height: 6px;
+}
+/*复选框样式*/
+label input[type='radio'] + span::before,label input[type='checkbox'] + span::before{
+    /*background: url("../asset/earth.svg")  no-repeat 4px 4px;*/
+    position: absolute;
+    right: -3px;
+    content: '';
+    display: inline-block;
+    /*box-sizing: border-box;*/
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    /*border: 1px solid #099909;*/
+    background-size: 17px;
+}
+.leaflet-control-layers-base label:nth-of-type(n) input[type='radio']:checked + span::before {
+    background-color: rgba(201,131,7,1);
+    box-shadow: 0 0 4px 0 black;
+    transition: background-color .3s;
+}
+.leaflet-control-layers-overlays label:nth-of-type(n) input[type='checkbox']:checked + span::before{
+    background-color: rgba(201,131,7,1);
+    box-shadow: 0 0 4px 0 black;
+    transition: background-color .3s;
+}
+
+.leaflet-control-layers-base  label:nth-of-type(1) input[type='radio'] + span::before{/*satelitte*/
+    background: url("../asset/earth.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-base label:nth-of-type(2) input[type='radio'] + span::before{/*greycanvas*/
+    background: url("../asset/drop.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(1) input[type='checkbox'] + span::before{/*等压线*/
+    background: url("../asset/iso.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(2) input[type='checkbox'] + span::before{/*气温*/
+    background: url("../asset/temperature.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(3) input[type='checkbox'] + span::before{/*AQI*/
+    background: url("../asset/AQI.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(4) input[type='checkbox'] + span::before{/*热力图*/
+    background: url("../asset/heatmap.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(5)  input[type='checkbox'] + span::before{/*PM25*/
+    background: url("../asset/pm2.5.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(6) input[type='checkbox'] + span::before{/*PM10*/
+    background: url("../asset/pm10.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(7) input[type='checkbox'] + span::before{/*SO2*/
+    background: url("../asset/so2.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(8) input[type='checkbox'] + span::before{/*CO*/
+    background: url("../asset/co.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(9) input[type='checkbox'] + span::before{/*NO2*/
+    background: url("../asset/NO2.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(10) input[type='checkbox'] + span::before{/*O3*/
+    background: url("../asset/o3-01.svg")  no-repeat 4px 4px;
+    background-size: 17px;
+}
+.leaflet-control-layers-overlays label:nth-of-type(11) input[type='checkbox'] + span::before{ /*windy*/
+    background: url("../asset/wind.svg")  no-repeat 4px 4px;
+    background-size: 17px;
 }
 
 
+.leaflet-control-layers-base, .leaflet-control-layers-overlays{
+    width: 100px;
+    float: right;
+    margin-right: 30px;
+}
 
+/*复选框样式*/
+.leaflet-control-layers-selector{
+    content: "aa";
+}
+.leaflet-control-layers:nth-of-type(1){
+    border-radius: 20px;
+}
 
 
 /*TIMELINE*/
-.range {
-    background: rgba(0,0,0,.6);
-    width: 350px;
-    height:0;
+.timelineBox{
+    height:50px;
 }
-#rangeinputslide{
-    /*-webkit-appearance: none;*/
-    /*background: rgba(225,2,225,.8);*/
-    /*height: 1px;*/
+
+
+/*INPUT RANGE STYLE*/
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    position: relative;
+    width:3px;
+    height:100%;
+    background:#f22;
+    /*border-radius:50%;*/
+    transition:.2s;        /* 點選放大時候的漸變時間 */
 }
+input[type="range"]::-webkit-slider-thumb:before,
+input[type="range"]::-webkit-slider-thumb:after
+{
+    position: absolute;
+    top: -10px;
+    width: 2000px;          /* 長度很長沒關係，因為剛剛有用 overflow:hidden 了 */
+    height: 4px;
+    content:"";
+    pointer-events: none;   /* 讓滑鼠可以點擊穿透偽元素，不然會點不到下面 */
+    transition:.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:before{
+    left: -1997px;
+    background: #f22;
+}
+input[type="range"]::-webkit-slider-thumb:after {
+    left: 10px;
+    background: #edc;
+}
+input[type="range"]:active::-webkit-slider-thumb:before,
+input[type="range"]:active::-webkit-slider-thumb:after
+{
+    top: -20px;
+}
+
+input[type="range"]:active::-webkit-slider-thumb{ /*时间轴滑块点击后*/
+    background: yellow;
+}
+
+input[type="range"]:active::-webkit-slider-thumb:after {
+    left: 16px;
+}
+
+
+.range-labels{
+    display: flex;
+    flex-direction: row;
+}
+.range-labels li{
+    display:none;
+}
+.range-labels li:nth-of-type(10n){/*只显示10的倍数天*/
+    list-style: none;
+    display: inline-block;
+    flex-grow:1;
+    color: #ffffff;
+    text-align: center;
+    /*border-right: 1px solid black;*/
+    /*padding: 5px 0 0 0;!*top right botm left*!*/
+    margin-top: 5px;
+}
+
+

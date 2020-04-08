@@ -1,7 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="509b3764-7911-46b1-a3e3-2b03a39a4031" name="Default Changelist" comment="" />
+    <list default="true" id="509b3764-7911-46b1-a3e3-2b03a39a4031" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/front.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/AQI.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/NO2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/co.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/heatmap.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/iso.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/o3-01.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/pm10.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/pm2.5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/asset/so2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/css/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/demo/css/timeline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/script/ControlTimeLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo/script/ControlTimeLine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/script/ControlTimelineAnimation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/script/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo/script/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/dist/leaflet-routing-machine.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/dist/leaflet.routing.icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/dist/leaflet.routing.icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/dist/routing-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/Control.Geocoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/localized.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/localized.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/mapbox.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/examples/mapbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/scripts/publish.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/autocomplete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/control.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/error-control.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/formatter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/geocoder-element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/itinerary-builder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/itinerary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/line.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/localization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/mapbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/osrm-v1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/plan.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/src/waypoint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/SpecRunner.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/boot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/console.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/jasmine-html.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/jasmine.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/jasmine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/lib/jasmine-2.0.0/jasmine_favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/spec/formatter-spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaflet-routing-machine-master/test/spec/osrmv1-spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/2(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/2(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/3(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/3(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/4(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/4(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/5(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/6(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/6(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/7(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/7(2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/GIBSLayer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/GIBSMetadata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/leaflet-hash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/leaflet-src.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/leaflet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nasa_files/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/heatmap-test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/wind-test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/llvm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timeline/ControlTimeLine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timeline/timeline.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/timeline/timtline_data_fake.js" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,85 +120,85 @@
     <session id="-1731893138">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="7" />
+          <entry key="css" value="11" />
           <entry key="htm" value="2" />
-          <entry key="html" value="14" />
-          <entry key="js" value="33" />
+          <entry key="html" value="21" />
+          <entry key="js" value="76" />
+          <entry key="jshintrc" value="1" />
+          <entry key="json" value="1" />
           <entry key="md" value="1" />
-          <entry key="svg" value="1" />
-          <entry key="ts" value="4" />
+          <entry key="png" value="19" />
+          <entry key="svg" value="4" />
+          <entry key="ts" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="7" />
-          <entry key="HTML" value="16" />
-          <entry key="JavaScript" value="33" />
+          <entry key="CSS" value="11" />
+          <entry key="HTML" value="23" />
+          <entry key="Image" value="19" />
+          <entry key="JSHint" value="1" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="76" />
           <entry key="Markdown" value="1" />
-          <entry key="SVG" value="1" />
-          <entry key="TypeScript" value="4" />
+          <entry key="SVG" value="4" />
+          <entry key="TypeScript" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="727" />
+          <entry key="css" value="2257" />
           <entry key="html" value="144" />
-          <entry key="js" value="1319" />
+          <entry key="js" value="4270" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="727" />
+          <entry key="CSS" value="2257" />
           <entry key="HTML" value="144" />
-          <entry key="JavaScript" value="1319" />
+          <entry key="JavaScript" value="4270" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4330638">
+    <splitter split-orientation="horizontal" split-proportion="0.75250834">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/demo/script/demo.js">
+            <entry file="file://$PROJECT_DIR$/demo/css/timeline.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="418">
-                  <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/demo/script/ControlTimelineAnimation.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+                <state relative-caret-position="2025">
+                  <caret line="135" column="40" selection-start-line="135" selection-start-column="40" selection-end-line="135" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/demo/demo.html">
+            <entry file="file://$PROJECT_DIR$/demo/script/ControlTimeLine.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="810">
-                  <caret line="91" column="47" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
+                <state relative-caret-position="371">
+                  <caret line="111" column="21" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/demo/css/timeline.css">
+            <entry file="file://$PROJECT_DIR$/demo/script/demo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="573">
-                  <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+                <state relative-caret-position="960">
+                  <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -101,12 +206,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/demo/script/ControlTimeLine.js">
+            <entry file="file://$PROJECT_DIR$/demo/demo.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+                <state relative-caret-position="1680">
+                  <caret line="112" column="53" selection-start-line="112" selection-start-column="53" selection-end-line="112" selection-end-column="53" />
                 </state>
               </provider>
             </entry>
@@ -125,31 +230,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>glo</find>
-      <find>L.CON</find>
-      <find>leaflet-control</find>
-      <find>timeline</find>
-      <find>Slider</find>
-      <find>sheet</find>
-      <find>layer</find>
-      <find>control</find>
-      <find>this.sheet</find>
-      <find>setupStartStyles</find>
-      <find>37adbf</find>
-      <find>change</find>
-      <find>options</find>
-      <find>grey</find>
-      <find>init</find>
-      <find>add</find>
-      <find>inputs</find>
+      <find>leaflet-retina</find>
+      <find>toggle</find>
+      <find>collapsed</find>
+      <find>range-labels</find>
+      <find>option</find>
+      <find>step</find>
+      <find>leaflet-control-layers-separator</find>
+      <find>等压</find>
+      <find>气温</find>
+      <find>热</find>
+      <find>layers-2x</find>
+      <find>url(images/layers-2x.png);</find>
+      <find>多边形</find>
+      <find>cfg</find>
+      <find>icons</find>
       <find>activeColor</find>
-      <find>activeColor</find>
-      <find>thumbHeight</find>
-      <find>thumbSize</find>
-      <find>inactiveColor</find>
+      <find>getTrackStyle</find>
+      <find>timelineItems</find>
+      <find>li</find>
       <find>range</find>
-      <find>backgroundColor</find>
+      <find>inactiveColor</find>
+      <find>thumbHeight</find>
+      <find>click</find>
+      <find>thumb</find>
+      <find>addOverlay</find>
+      <find>curValue</find>
+      <find>linum</find>
+      <find>getDataAddMarkers</find>
+      <find>changeMap</find>
+      <find>leaflet-control-layers</find>
     </findStrings>
+    <replaceStrings>
+      <replace>lastValue</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/dist</dir>
+      <dir>$PROJECT_DIR$/</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -157,7 +275,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nasa_files/leaflet-src.js" />
         <option value="$PROJECT_DIR$/src/demo.css" />
         <option value="$PROJECT_DIR$/src/data/control.js" />
         <option value="$PROJECT_DIR$/src/ControlTimeLine.js" />
@@ -166,9 +283,12 @@
         <option value="$PROJECT_DIR$/src/timeline/timeline.css" />
         <option value="$PROJECT_DIR$/src/timeline/ControlTimeLine.js" />
         <option value="$PROJECT_DIR$/src/demo.js" />
-        <option value="$PROJECT_DIR$/demo/demo.html" />
+        <option value="$PROJECT_DIR$/nasa_files/leaflet-src.js" />
+        <option value="$PROJECT_DIR$/demo/script/Addlayer.js" />
+        <option value="$USER_HOME$/courses/大三/大三下/resume/面试杂记/foo.js" />
         <option value="$PROJECT_DIR$/demo/script/ControlTimelineAnimation.js" />
         <option value="$PROJECT_DIR$/demo/script/demo.js" />
+        <option value="$PROJECT_DIR$/demo/demo.html" />
         <option value="$PROJECT_DIR$/demo/css/timeline.css" />
         <option value="$PROJECT_DIR$/demo/script/ControlTimeLine.js" />
       </list>
@@ -181,10 +301,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="82" />
-    <option name="y" value="292" />
-    <option name="width" value="1301" />
-    <option name="height" value="798" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,22 +310,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -224,18 +326,46 @@
               <item name="front" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="asset" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="front" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="front" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="demo" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="script" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="front" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="dist" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="front" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="timeline" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="dist" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AQI" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,18 +415,24 @@
       <option name="presentableId" value="Default" />
       <updated>1581338509960</updated>
       <workItem from="1581338512650" duration="13556000" />
-      <workItem from="1583728990634" duration="15277000" />
+      <workItem from="1583728990634" duration="16334000" />
+      <workItem from="1584227244153" duration="12474000" />
+      <workItem from="1584489784189" duration="336000" />
+      <workItem from="1585054739136" duration="15043000" />
+      <workItem from="1585407487269" duration="19348000" />
+      <workItem from="1586340983369" duration="3863000" />
+      <workItem from="1586351397767" duration="612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28833000" />
+    <option name="totallyTimeSpent" value="81566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21564482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15715292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,7 +443,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -325,16 +461,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/nasa.htm</url>
-          <line>65</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/nasa_files/leaflet-src.js</url>
-          <line>8594</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/demo.js</url>
           <line>44</line>
           <option name="timeStamp" value="10" />
@@ -347,79 +473,51 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
           <line>22</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/Addlayer.js</url>
+          <line>86</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/Addlayer.js</url>
+          <line>43</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
+          <line>218</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
+          <line>126</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
+          <line>123</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
+          <line>49</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/demo/script/ControlTimeLine.js</url>
+          <line>108</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/velocity/leaflet-velocity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10095">
-          <caret line="673" column="6" selection-start-line="673" selection-start-column="6" selection-end-line="673" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AiryMap污染地图.htm" />
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-270" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/examples/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/examples/localized.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/examples/mapbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/src/error-control.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/src/control.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nasa.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding>
-            <element signature="e#9#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet-hash.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet-src.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120615">
-          <caret line="8045" column="41" selection-start-line="8045" selection-start-column="35" selection-end-line="8045" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nasa.htm" />
+    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet-hash.js" />
+    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet.css" />
     <entry file="file://$PROJECT_DIR$/demo/popup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-498">
@@ -427,83 +525,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/script/Addlayer.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/timeline/ControlTimeLine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="199" column="2" lean-forward="true" selection-start-line="199" selection-start-column="2" selection-end-line="199" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/demo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/timeline/timtline_data_fake.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/script/timtline_data_fake.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/timeline/timeline.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" selection-start-line="34" selection-end-line="35" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/script/Gadget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/timeline/ControlTimeLine.js" />
+    <entry file="file://$PROJECT_DIR$/src/demo.css" />
+    <entry file="file://$PROJECT_DIR$/src/timeline/timtline_data_fake.js" />
+    <entry file="file://$PROJECT_DIR$/src/timeline/timeline.css" />
     <entry file="file://$PROJECT_DIR$/demo/asset/drop.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1211">
-          <caret line="7036" column="13" selection-start-line="7036" selection-start-column="13" selection-end-line="7036" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/script/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/script/ControlTimelineAnimation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/demo.js" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -511,24 +540,179 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/demo.html" />
+    <entry file="file://$PROJECT_DIR$/leaflet-routing-machine-master/.jshintrc" />
+    <entry file="file://$PROJECT_DIR$/data/heatmap-test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="452" column="6" lean-forward="true" selection-start-line="452" selection-start-column="6" selection-end-line="452" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/timtline_data_fake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/asset/earth.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nasa_files/leaflet-src.js" />
+    <entry file="file://$PROJECT_DIR$/demo/images/zhandian.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/SO2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/PM10.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/O3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/NO2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/line2.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/isoline_3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/isoline_2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/isoline_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/CO.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/AQI指标条形图.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/close.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/images/PM2.5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/draw/images/spritesheet-2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/draw/images/spritesheet.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/draw/images/spritesheet.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/images/search-icon-mobile.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/draw/leaflet.draw.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/Gadget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/search/leaflet-search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6930">
+          <caret line="337" column="22" lean-forward="true" selection-start-line="337" selection-start-column="22" selection-end-line="337" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/draw/Control.Draw.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/heatmap/leaflet-heatmap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/isoline/leaflet-isoline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/ConventionalSixItems.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5546">
+          <caret line="7025" column="26" lean-forward="true" selection-start-line="7025" selection-start-column="26" selection-end-line="7025" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/Addlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="61" column="52" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/velocity/leaflet-velocity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="405" selection-start-line="405" selection-end-line="405" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/AQI/leaflet-bubbles.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/courses/大三/大三下/resume/面试杂记/foo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="290" column="1" selection-start-line="290" selection-start-column="1" selection-end-line="290" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/ControlTimelineAnimation.js" />
     <entry file="file://$PROJECT_DIR$/demo/css/timeline.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+        <state relative-caret-position="2025">
+          <caret line="135" column="40" selection-start-line="135" selection-start-column="40" selection-end-line="135" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/demo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="91" column="47" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
+        <state relative-caret-position="1680">
+          <caret line="112" column="53" selection-start-line="112" selection-start-column="53" selection-end-line="112" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/script/demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/script/ControlTimeLine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="371">
+          <caret line="111" column="21" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="21" />
         </state>
       </provider>
     </entry>

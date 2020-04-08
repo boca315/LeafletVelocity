@@ -10,14 +10,14 @@ L.Control.TimeLineSlider = L.Control.extend({
         },
         extraChangeMapParams: {},
         initializeChange: true,
-
-        thumbHeight: "4.5px",
+        tmLineWidth:"700px",
+        thumbHeight: "8px",
         labelWidth: "80px",
         betweenLabelAndRangeSpace: "20px",
 
         labelFontSize: "14px",
-        activeColor: "red",
-        inactiveColor: "rgba(0,0,0,.6)",
+        activeColor: "rgba(225,225,225,.9)",
+        inactiveColor: "rgba(225,225,225,.9)",
 
         backgroundOpacity: 0.75,
         backgroundColor: "#555555",
@@ -45,11 +45,13 @@ L.Control.TimeLineSlider = L.Control.extend({
     },
     onAdd: function(map) {
         console.log("add");
+        this.linum=-1;
         this.map = map;
+        this.curValue=1;
         this.sheet = document.createElement('style');
         document.body.appendChild(this.sheet);
 
-        this.container = L.DomUtil.create('div', 'control_container');
+        this.container = L.DomUtil.create('div', 'control_container timelineBox');
 
         /* Prevent click events propagation to map */
         L.DomEvent.disableClickPropagation(this.container);
@@ -63,18 +65,23 @@ L.Control.TimeLineSlider = L.Control.extend({
         /* Prevent scroll events propagation to map when cursor on the div */
         L.DomEvent.disableScrollPropagation(this.container);
 
+
         /* Create html elements for input and labels */
         this.slider = L.DomUtil.create('div', 'range', this.container);
         this.slider.innerHTML = `<input id="rangeinputslide" type="range" min="1" max="${this.options.timelineItems.length}" steps="1" value="1"></input>`
 
         this.rangeLabels = L.DomUtil.create('ul', 'range-labels', this.container);
-        this.rangeLabels.innerHTML = this.options.timelineItems.map((item) => { return "<li>" + item + "</li>" }).join('');
+
+        this.rangeLabels.innerHTML = this.options.timelineItems.map((item) => {
+            this.linum++
+            return `<li id="item-${this.linum}">` + item + "</li>"
+        }).join('');
 
         this.rangeInput = L.DomUtil.get(this.slider).children[0];
         this.rangeLabelArray = Array.from(this.rangeLabels.getElementsByTagName('li'));
         this.sliderLength = this.rangeLabelArray.length;
 
-        this.thumbSize = parseFloat(this.options.thumbHeight) * 2;
+        this.thumbSize = parseFloat(this.options.thumbHeight) * 1;
         // double the thumb size when its active
         this.activeThumbSize = this.thumbSize * 2;
 
@@ -97,7 +104,6 @@ L.Control.TimeLineSlider = L.Control.extend({
         /* When input gets changed change styles on slider and trigger user's changeMap function */
         L.DomEvent.on(this.rangeInput, "input", function() {
 
-            curValue = this.value;
 
             that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
             var curLabel = that.rangeLabelArray[curValue-1].innerHTML;
@@ -106,6 +112,7 @@ L.Control.TimeLineSlider = L.Control.extend({
             mapParams = {value: curValue, label: curLabel, map: map}
             allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
             that.options.changeMap(allChangeMapParameters);
+            this.curValue = this.value;
         });
 
         // Add click event to each label so it triggers input change for corresponding value
@@ -114,7 +121,8 @@ L.Control.TimeLineSlider = L.Control.extend({
                 var targetli = e.target;
                 var index = that.rangeLabelArray.indexOf(targetli);
                 that.rangeInput.value = index + 1;
-
+                // console.log(index)
+                // console.log(that.rangeInput.value)
                 var inputEvent = new Event('input');
                 that.rangeInput.dispatchEvent(inputEvent);
 
@@ -150,15 +158,15 @@ L.Control.TimeLineSlider = L.Control.extend({
         throw new Error('Bad Hex');
     },
 
-    // setupStartStyles: function(url) {
-    //     var link = document.createElement('link');
-    //     link.type = 'text/css';
-    //     link.rel = 'stylesheet';
-    //     link.href = url;
-    //     var head = document.getElementsByTagName('head')[0];
-    //     head.appendChild(link);
-    //
-    // },
+    setupStartStyles: function(url) {
+        var link = document.createElement('link');
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.href = url;
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+
+    },
 
     getTrackStyle: function (el, sliderLength) {
         prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
@@ -186,13 +194,37 @@ L.Control.TimeLineSlider = L.Control.extend({
         }
 
         // Change background gradient
+        style += `.range {
+            background: linear-gradient(to right, ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} ${coverVal}%, ${that.options.activeColor} ${coverVal}%, ${that.options.activeColor} ${val}%,  ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} 100%);
+            transition: background .3s;
+            height:${this.thumbSize}px;
+            border-radius: 500px;
+            width:${this.options.tmLineWidth};
+            }`;
+        style += `input[type="range"]{ /*清除自带样式*/
+            -webkit-appearance: none;
+            overflow:hidden;     
+            outline : none;     
+            background:none;
+            }
+            #rangeinputslide{
+            -webkit-appearance: none;
+            overflow:hidden;    
+            outline : none;     
+            background:none;
+            margin: 0;
+            }`;
         for (var i = 0; i < prefs.length; i++) {
-            style += `.range {background: linear-gradient(to right, ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} ${coverVal}%, ${that.options.activeColor} ${coverVal}%, ${that.options.activeColor} ${val}%,  ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} 100%)}`;
+
             style += '.range input::-' + prefs[i] + `{
             background: linear-gradient(to right, ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} ${coverVal}%, ${that.options.activeColor} 0%, ${that.options.activeColor} ${val}%, ${that.options.inactiveColor} ${val}%, ${that.options.inactiveColor} ${100-coverVal}%, ${that.coverBackgroundRGBA} ${100-coverVal}%, ${that.coverBackgroundRGBA} 100%);
-            height:3px;
+            height:${this.thumbSize}px;
             width:100%;
+            transition: .3s;
+            border-radius: 500px;
             }`;
+
+            style +=''
         }
 
         return style;
@@ -206,26 +238,35 @@ L.control.timelineSlider = function(options) {
 
 
 getDataAddMarkers = function( {label, value, map, exclamation} ) {
+    // console.log("aaaa")
     map.eachLayer(function (layer) {
         if (layer instanceof L.Marker) {
             map.removeLayer(layer);
         }
+
     });
 
-    filteredData = data.features.filter(function (i, n) {
-        return i.properties.title===label;
+    // filteredData = data.features.filter(function (i, n) {
+    //     console.log(i.properties.title);
+    //     return i.properties.title===label; // timelineItems
+    // });
+
+    $.getJSON('../data/bubble-test.json', function (data) {
+        console.log("render")
+        var mycolors = ['#6a9955', '#e5da82', '#e36c09', '#ff0000', '#e773fc', '#840c18'];
+        var cfg = {
+            nums: 6, // 颜色个数，即等级数
+            colors: mycolors, // 每个等级对应的颜色
+            fontSize: '13px', // 字体大小
+            fontColor: '#cccccc', //字体颜色
+            src: 'images/AQI指标条形图.png'
+        };
+
+        var templayer = new BubblesOverlay(cfg);
+        // 将图层加入地图
+        // layerControl.addOverlay(templayer, 'AQI');
+        // 加入数据
+        templayer.setData(data);
+
     });
-
-    var markerArray = [];
-    L.geoJson(filteredData, {
-        onEachFeature: function onEachFeature(feature, layer) {
-            content = `${exclamation} <br> ${feature.properties.content} <br> (${Math.round(value/6 * 100)}% done with story)`
-            var popup = L.popup().setContent(content);
-            layer.bindPopup(popup);
-            markerArray.push(layer);
-        }
-    }).addTo(map);
-
-    var markerGroup = L.featureGroup(markerArray);
-    map.fitBounds(markerGroup.getBounds()).setZoom(12);
 };
