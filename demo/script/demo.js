@@ -52,16 +52,7 @@ function initDemoMap() {
   //   }
     // 加入时间轴
   var cm = L.control.timelineSlider({
-        timelineItems: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 9","Day 10",
-            "Day 11", "Day 12", "Day 13", "Day 14", "Day 15", "Day 16","Day 17","Day 18","Day 19","Day 20",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 25", "Day 26","Day 27","Day 28","Day 29","Day 30",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 39","Day 40",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 49","Day 50",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 59","Day 60",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 69","Day 70",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 79","Day 80",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 89","Day 90",
-            "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6","Day 7","Day 8","Day 99","Day 100"],
+        timelineItems: ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"],
         changeMap: getDataAddMarkers, //更改地图 可以获得的参数在ControlTimeLine.JS mapParams
         extraChangeMapParams: {exclamation: "Hello World!"} })
         .addTo(map);

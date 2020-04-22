@@ -11,13 +11,17 @@ L.Control.TimeLineSlider = L.Control.extend({
         extraChangeMapParams: {},
         initializeChange: true,
         tmLineWidth:"700px",
+        playBtWidth:"30",
         thumbHeight: "8px",
         labelWidth: "80px",
         betweenLabelAndRangeSpace: "20px",
+        timerInterval:200,
 
         labelFontSize: "14px",
-        activeColor: "rgba(225,225,225,.9)",
-        inactiveColor: "rgba(225,225,225,.9)",
+        activeColor: "#e5e5e5",
+        inactiveColor: "#555555",
+        // activeColor: "red",
+        // inactiveColor: "blue",
 
         backgroundOpacity: 0.75,
         backgroundColor: "#555555",
@@ -30,7 +34,7 @@ L.Control.TimeLineSlider = L.Control.extend({
     },
 
     initialize: function (options) {
-        console.log("init");
+        // console.log("init");
         if (typeof options.changeMap != "function") {
             options.changeMap = function ({label, value, map}) {
                 console.log("You are not using the value or label from the timeline to change the map.");
@@ -44,12 +48,20 @@ L.Control.TimeLineSlider = L.Control.extend({
         L.setOptions(this, options);
     },
     onAdd: function(map) {
-        console.log("add");
+        // console.log("add");
+        this.isPlaying=false;
         this.linum=-1;
         this.map = map;
-        this.curValue=1;
+        this.lastValue=1;
         this.sheet = document.createElement('style');
         document.body.appendChild(this.sheet);
+        this.keypoint=this.options.timelineItems;
+        this.options.timelineItems=[]
+        for (let i = 0; i < this.keypoint.length; i++) {
+            this.options.timelineItems.push.apply(this.options.timelineItems,[...Array(99)].map(_=>0));
+            this.options.timelineItems.push(this.keypoint[i])
+        }
+
 
         this.container = L.DomUtil.create('div', 'control_container timelineBox');
 
@@ -65,6 +77,10 @@ L.Control.TimeLineSlider = L.Control.extend({
         /* Prevent scroll events propagation to map when cursor on the div */
         L.DomEvent.disableScrollPropagation(this.container);
 
+        /*create play button*/
+        this.play=L.DomUtil.create('div','play',this.container);
+        this.play.innerHTML=`<button class="playBt"></button>`;
+        this.playButton=L.DomUtil.get(this.play).children[0];
 
         /* Create html elements for input and labels */
         this.slider = L.DomUtil.create('div', 'range', this.container);
@@ -99,32 +115,84 @@ L.Control.TimeLineSlider = L.Control.extend({
 
         that = this;
 
-        // this.sheet.textContent = this.setupStartStyles("");
+        /*add click event to play button*/
+        L.DomEvent.on(this.playButton,"click",function(e){
+            that.isPlaying=((that.isPlaying&&true)===true)?false:true;
+
+            console.log(that.isPlaying);
+            if(that.isPlaying){ //play
+                console.log("playnow");
+                e.target.className+=" playBtActive";
+
+                this.timer=setInterval(()=>{
+                    if(that.rangeInput.value >= that.linum){
+                        clearInterval(this.timer);
+                        that.playButton.className="playBt";
+                    }
+                    var curLb = that.rangeLabelArray[that.rangeInput.value-1].innerHTML;
+                    let mapParams = {value: that.rangeInput.value, label: curLb, map: map}
+                    allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
+                    that.options.changeMap(allChangeMapParameters);
+                    that.rangeInput.value++;
+                    var inputEvent = new Event('input');
+                    that.rangeInput.dispatchEvent(inputEvent);
+
+                },that.options.timerInterval);
+
+            }else{//stop
+                console.log("stopnow");
+                e.target.className="playBt";
+                clearInterval(this.timer);
+            }
+        });
 
         /* When input gets changed change styles on slider and trigger user's changeMap function */
-        L.DomEvent.on(this.rangeInput, "input", function() {
+        L.DomEvent.on(this.rangeInput, "input", function(e) {
+            // if(this.value==1|| that.isPlaying) {
+                let curValue = this.value;
+                let toValue = Math.ceil(curValue / 100) * 100
 
+                that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
+                var curLabel = that.rangeLabelArray[toValue - 1].innerHTML;
 
-            that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
-            var curLabel = that.rangeLabelArray[curValue-1].innerHTML;
+                // Change map according to either current label or value chosen
+                mapParams = {value: toValue, label: curLabel, map: map}
+                allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
+                that.options.changeMap(allChangeMapParameters);
+                this.curValue = this.value;
+                that.lastValue = this.curValue;
+            // }else{
+            //     e.preventDefault();
+            //     let curValue = this.value;
+            //     let toValue = Math.ceil(curValue / 100) * 100
+            //     for (let i = that.lastValue; i <= curValue; i++) {
+            //         $('#rangeinputslide')[0].value=i;
+            //     }
+            //     that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
+            //     var curLabel = that.rangeLabelArray[toValue - 1].innerHTML;
+            //
+            //     // Change map according to either current label or value chosen
+            //     mapParams = {value: toValue, label: curLabel, map: map}
+            //     allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
+            //     that.options.changeMap(allChangeMapParameters);
+            //     this.curValue = this.value;
+            //     that.lastValue = this.curValue;
+            // }
 
-            // Change map according to either current label or value chosen
-            mapParams = {value: curValue, label: curLabel, map: map}
-            allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
-            that.options.changeMap(allChangeMapParameters);
-            this.curValue = this.value;
         });
 
         // Add click event to each label so it triggers input change for corresponding value
         for (li of this.rangeLabelArray) {
             L.DomEvent.on(li, "click", function (e) {
+                // if(that.isPlaying) return;
                 var targetli = e.target;
                 var index = that.rangeLabelArray.indexOf(targetli);
                 that.rangeInput.value = index + 1;
-                // console.log(index)
-                // console.log(that.rangeInput.value)
+                // console.log("trig click on li "+index);
                 var inputEvent = new Event('input');
                 that.rangeInput.dispatchEvent(inputEvent);
+                console.log(that.playButton.className);
+                that.playButton.className="playBt";
 
             });
         };
@@ -196,11 +264,14 @@ L.Control.TimeLineSlider = L.Control.extend({
         // Change background gradient
         style += `.range {
             background: linear-gradient(to right, ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} ${coverVal}%, ${that.options.activeColor} ${coverVal}%, ${that.options.activeColor} ${val}%,  ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} 100%);
-            transition: background .3s;
             height:${this.thumbSize}px;
             border-radius: 500px;
+            display: inline-block;
             width:${this.options.tmLineWidth};
             }`;
+        style+=`.range-labels{
+        width:${this.options.tmLineWidth};
+        }`;
         style += `input[type="range"]{ /*清除自带样式*/
             -webkit-appearance: none;
             overflow:hidden;     
@@ -218,6 +289,7 @@ L.Control.TimeLineSlider = L.Control.extend({
 
             style += '.range input::-' + prefs[i] + `{
             background: linear-gradient(to right, ${that.coverBackgroundRGBA} 0%, ${that.coverBackgroundRGBA} ${coverVal}%, ${that.options.activeColor} 0%, ${that.options.activeColor} ${val}%, ${that.options.inactiveColor} ${val}%, ${that.options.inactiveColor} ${100-coverVal}%, ${that.coverBackgroundRGBA} ${100-coverVal}%, ${that.coverBackgroundRGBA} 100%);
+            transition: background-color .3s;
             height:${this.thumbSize}px;
             width:100%;
             transition: .3s;
@@ -237,36 +309,127 @@ L.control.timelineSlider = function(options) {
 }
 
 
+// mapParams = {value: curValue, label: curLabel, map: map}
+// allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
 getDataAddMarkers = function( {label, value, map, exclamation} ) {
-    // console.log("aaaa")
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
-        }
+    // console.log(label);//Day1
+    // console.log(value);//1
+    // console.log(map);
+    //// console.log(exclamation);
+    // console.log(map.layers);
+    if(label!=="0") {
+        map.eachLayer(function (layer) {
+            /**
+             * layer instanceof L.velocityLayer
+             * L.idwLayer
+             *
+             * **/
+            if (layer instanceof L.Marker) { //是小工具
+                console.log(layer)
+                // map.removeLayer(layer);
+            } else {//reset layer's data
+                let file = '';
+                if (layer.layerType !== undefined) {
+                    if (layer.layerType === "heatLayer") { // heatmap 热力图
+                        heatLayerChangeTest(layer, value, file)
+                    }
+                    if (layer.layerType === "bubbleLayer") { //AQI
+                        bubbleLayerChangeTest(layer, value, file)
+                    }
+                    if (layer.layerType === "isoLayer") { //等压线
+                        isoLayerChangeTest(layer, value, file);
+                    }
 
+                } else if (layer instanceof L.IdwLayer) { // idw 插值图
+                    idwLayerChangeTest(layer, value, file);
+                } else { // leaflet-velocity 风向图
+                    velocityLayerChangeTest(layer, value, file);
+                }
+            }
+        });
+    }
+
+};
+velocityLayerChangeTest=function(layer,value,file){
+    switch((value/100)%2) {
+        case 0:
+            file='../data/wind1.json'
+            break;
+        case 1:
+            file='../data/wind2.json'
+            break;
+        default:
+            break;
+    }
+    console.log(file);
+    $.getJSON(file, function (data) {
+        layer.resetData(data);
     });
+};
+idwLayerChangeTest=function(layer,value,file){
+    // console.log((value/10)%2);
+    switch((value/100)%2) {
+        case 0:
+            file='../data/c-test.json'
+            break;
+        case 1:
+            file='../data/c-test1.json'
+            break;
+        default:
+            break;
+    }
+    console.log(file);
+    $.getJSON(file, function (data) {
+        layer.resetData(data);
+    });
+};
+bubbleLayerChangeTest=function(layer,value,file){ // 1对3 4 不对
+    switch((value/100)%2) {
+        case 0:
+            file='../data/bubble-test.json'
+            break;
+        case 1:
+            file='../data/bubbledata.json'
+            break;
+        default:
+            break;
+    }
+    console.log(file);
+    $.getJSON(file, function (data) {
+        layer.resetData(data);
+    });
+};
+heatLayerChangeTest=function(layer,value,file){ //2对的 1貌似不对
+    switch((value/100)%2) {
 
-    // filteredData = data.features.filter(function (i, n) {
-    //     console.log(i.properties.title);
-    //     return i.properties.title===label; // timelineItems
-    // });
+        case 0:
+            file='../data/heatmap-test.json'
+            break;
+        case 1:
+            file='../data/heatmap-test2.json'
+            break;
+        default:
+            break;
+    }
+    console.log(file);
+    $.getJSON(file, function (data) {
+        layer.resetData(data)
+    });
+};
+isoLayerChangeTest=function(layer,value,file){
+    switch((value/100)%2) {
 
-    $.getJSON('../data/bubble-test.json', function (data) {
-        console.log("render")
-        var mycolors = ['#6a9955', '#e5da82', '#e36c09', '#ff0000', '#e773fc', '#840c18'];
-        var cfg = {
-            nums: 6, // 颜色个数，即等级数
-            colors: mycolors, // 每个等级对应的颜色
-            fontSize: '13px', // 字体大小
-            fontColor: '#cccccc', //字体颜色
-            src: 'images/AQI指标条形图.png'
-        };
-
-        var templayer = new BubblesOverlay(cfg);
-        // 将图层加入地图
-        // layerControl.addOverlay(templayer, 'AQI');
-        // 加入数据
-        templayer.setData(data);
-
+        case 0:
+            file='../data/isoline-test.json'
+            break;
+        case 1:
+            file='../data/isoline-test2.json'
+            break;
+        default:
+            break;
+    }
+    console.log(file);
+    $.getJSON(file, function (data) {
+        layer.resetData(data)
     });
 };

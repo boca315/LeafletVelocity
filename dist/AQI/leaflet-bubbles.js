@@ -1,10 +1,11 @@
 var BubblesOverlay = L.Layer.extend({
 
     /**
-     * 
-     * @param {nums:Int, colors:Array,fontSize,fontColor,png:String} config 
+     *
+     * @param {nums:Int, colors:Array,fontSize,fontColor,png:String} config
      */
     initialize: function (config) {
+        this.layerType="bubbleLayer";
         this.myGroup = [];
         this.layers = [];
         this.cfg = config;
@@ -88,7 +89,7 @@ var BubblesOverlay = L.Layer.extend({
 
     /**
      * 设置数据
-     * @param {数据} data 
+     * @param {数据} data
      */
     setData: function (data) {
         this.data = data;
@@ -96,10 +97,20 @@ var BubblesOverlay = L.Layer.extend({
 
     /**
      * 添加数据
-     * @param {数据} data 
+     * @param {数据} data
      */
     addData: function (data) {
         this.data.push(data);
+        this._draw(data);
+    },
+    /**
+     * 更新数据
+     * @param {数据} data
+     */
+    resetData: function(data){
+        this.layers = [];
+        this.myGroup.clearLayers();
+        this.setData(data);
         this._draw(data);
     }
 });

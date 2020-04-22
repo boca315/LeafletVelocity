@@ -286,6 +286,7 @@ L.VelocityLayer = (L.Layer ? L.Layer : L.Class).extend({
   },
   setData: function setData(data) {
     this.options.data = data;
+    console.log("set wind vel")
 
     if (this._windy) {
       this._windy.setData(data);
@@ -295,6 +296,10 @@ L.VelocityLayer = (L.Layer ? L.Layer : L.Class).extend({
 
     this.fire("load");
   },
+    resetData: function resetData(data){
+    this.setData(data);
+    this.draw()
+    },
   setOptions: function setOptions(options) {
     this.options = Object.assign(this.options, options);
 

@@ -15,7 +15,7 @@ $.getJSON("../data/wind-test.json", function (data) {
 });
 
 // 画插值图，cell越小计算量越大，越卡
-$.getJSON("../data/c-test.json", function (data) {
+$.getJSON("../data/c-test1.json", function (data) {
     var idw = L.idwLayer(data, {
         opacity: 0.3,
         // maxZoom: 18,
@@ -39,7 +39,7 @@ $.getJSON('../data/bubble-test.json', function (data) {
         src: 'images/AQI指标条形图.png'
     };
 
-    var templayer = new BubblesOverlay(cfg);
+    var templayer = new BubblesOverlay(cfg); // this.layerType="bubbleLayer";
     // 将图层加入地图
     layerControl.addOverlay(templayer, 'AQI');
     // 加入数据
@@ -47,7 +47,7 @@ $.getJSON('../data/bubble-test.json', function (data) {
 });
 
 // 添加热力图
-$.getJSON('../data/heatmap-test2.json', function (data) {
+$.getJSON('../data/heatmap-test.json', function (data) {
 
     var cfg = {
         // radius should be small ONLY if scaleRadius is true (or small radius is intended)
@@ -56,7 +56,7 @@ $.getJSON('../data/heatmap-test2.json', function (data) {
         // scales the radius based on map zoom
         "scaleRadius": true,
         // if set to false the heatmap uses the global maximum for colorization
-        // if activated: uses the data maximum within the current map boundaries 
+        // if activated: uses the data maximum within the current map boundaries
         //   (there will always be a red spot with useLocalExtremas true)
         "useLocalExtrema": true,
         // which field name in your data represents the latitude - default "lat"
@@ -82,7 +82,7 @@ $.getJSON('../data/heatmap-test2.json', function (data) {
     };
 
 
-    var heatmapLayer = new HeatmapOverlay(cfg);
+    var heatmapLayer = new HeatmapOverlay(cfg); // this.layerType="heatLayer";
 
     layerControl.addOverlay(heatmapLayer, '热力图');
 
@@ -122,7 +122,7 @@ var isoline_cfg = {
     icons: isoline_icons,
 }
 
-var isoline_layer = new IsolineOverlay(isoline_cfg);
+var isoline_layer = new IsolineOverlay(isoline_cfg); // this.mapType="isoMap";
 layerControl.addOverlay(isoline_layer, '等压线');
 // 加入数据
 isoline_layer.setData(isoline_pointGrid);

@@ -216,15 +216,51 @@ input[type="range"]:active::-webkit-slider-thumb:after {
 .range-labels li{
     display:none;
 }
-.range-labels li:nth-of-type(10n){/*只显示10的倍数天*/
+.range-labels li:nth-of-type(100n){/*只显示10的倍数天*/
     list-style: none;
     display: inline-block;
     flex-grow:1;
     color: #ffffff;
-    text-align: center;
+    text-align: right;
     /*border-right: 1px solid black;*/
     /*padding: 5px 0 0 0;!*top right botm left*!*/
     margin-top: 5px;
 }
 
 
+/*play button*/
+.play{
+    display: inline-block;
+    background-color: #e5e5e5;
+    box-sizing: border-box;
+    box-shadow: 0 0 4px 0 black;
+    width:35px;
+    height:35px;
+    float:left;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+button{
+    padding: 0;
+}
+.playBt{
+    margin: 8px;
+    height: 20px;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    background-color: transparent;
+    border-color: transparent transparent transparent #9d0300;
+    transition: all .3s ease;
+}
+.playBtActive{
+    height: 20px;
+    border-style: double;
+    border-width: 0px 0px 0px 15px;
+}
+.range{
+    float:right;
+    margin-top: 15px;
+}
+.range-labels{
+    margin-top: 15px;
+}

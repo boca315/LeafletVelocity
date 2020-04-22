@@ -20,7 +20,7 @@
         this._max = 1;
         this._data = [];
     }
-    
+
     simpleidw.prototype = {
 
         defaultCellSize: 25,
@@ -30,7 +30,7 @@
            0.1: 'blue',
             0.2: 'cyan',
             0.3: 'lime',
-            0.4: 'yellow',            
+            0.4: 'yellow',
             0.5: 'orange',
             0.6: 'red',
             0.7: 'Maroon',
@@ -104,7 +104,7 @@
         draw: function (opacity) {
             if (!this._cell) this.cellSize(this.defaultCellSize);
             if (!this._grad) this.gradient(this.defaultGradient);
-            
+
             var ctx = this._ctx;
 
             ctx.clearRect(0, 0, this._width, this._height);
@@ -119,7 +119,7 @@
             // colorize the heatmap, using opacity value of each pixel to get the right color from our gradient
             var colored = ctx.getImageData(0, 0, this._width, this._height);
             this._colorize(colored.data, this._grad, opacity);
-            
+
             ctx.putImageData(colored, 0, 0);
 
             return this;
@@ -127,7 +127,7 @@
 
         _colorize: function (pixels, gradient, opacity) {
             for (var i = 0, len = pixels.length, j; i < len; i += 4) {
-                j = pixels[i + 3] * 4; 
+                j = pixels[i + 3] * 4;
 
                     pixels[i] = gradient[j];
                     pixels[i + 1] = gradient[j + 1];
@@ -255,6 +255,9 @@ L.IdwLayer = (L.Layer ? L.Layer : L.Class).extend({
 
         this._redraw();
     },
+    resetData:function resetData(latlngs){
+        this.setLatLngs(latlngs);
+    },
 
     _redraw: function () {
         if (!this._map) {
@@ -270,55 +273,55 @@ L.IdwLayer = (L.Layer ? L.Layer : L.Class).extend({
             exp = this.options.exp === undefined ? 1 : this.options.exp,
             max = this.options.max === undefined ? 1 : this.options.max,
             maxZoom = this.options.maxZoom === undefined ? this._map.getMaxZoom() : this.options.maxZoom,
-            v = 1, 
+            v = 1,
             cellCen = r / 2,
             grid = [],
             nCellX = Math.ceil((bounds.max.x-bounds.min.x)/r)+1,
             nCellY = Math.ceil((bounds.max.y-bounds.min.y)/r)+1,
             panePos = this._map._getMapPanePos(),
 
-            offsetX = 0, 
+            offsetX = 0,
             offsetY = 0,
             i, len, p, cell, x, y, j, len2, k;
-            
+
             console.log(nCellX);
             console.log(nCellY);
-            
+
             console.time('process');
-        
+
         for (i = 0, len = nCellY; i < len; i++) {
-            for (j = 0, len2 = nCellX; j < len2; j++) {     
-            
+            for (j = 0, len2 = nCellX; j < len2; j++) {
+
                 var x=i*r,y=j*r;
                 var numerator=0,denominator=0;
-                
-                for (k = 0, len3 = this._latlngs.length; k < len3; k++) {          
-                
-                    var p = this._map.latLngToContainerPoint(this._latlngs[k]);                    
-                    var cp = L.point((y-cellCen), (x-cellCen));                    
+
+                for (k = 0, len3 = this._latlngs.length; k < len3; k++) {
+
+                    var p = this._map.latLngToContainerPoint(this._latlngs[k]);
+                    var cp = L.point((y-cellCen), (x-cellCen));
                     var dist = cp.distanceTo(p);
-                    
+
                     var val =
                             this._latlngs[k].alt !== undefined ? this._latlngs[k].alt :
                             this._latlngs[k][2] !== undefined ? +this._latlngs[k][2] : 1;
-                    
+
                     if(dist===0){
                             numerator = val;
                             denominator = 1;
                             break;
                     }
-                    
+
                     var dist2 = Math.pow(dist, exp);
 
                     numerator += (val/dist2);
-                    denominator += (1/dist2);             
-                            
+                    denominator += (1/dist2);
+
                 }
-                
+
                 interpolVal = numerator/denominator;
-                
+
                 cell = [j*r, i*r, interpolVal];
-                
+
                 if (cell) {
                     data.push([
                         Math.round(cell[0]),

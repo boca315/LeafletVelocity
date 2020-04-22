@@ -1,10 +1,11 @@
 var IsolineOverlay = L.Layer.extend({
 
     /**
-     * 
-     * @param {style:Object(样式), nums:Int(个数), breaks:Array(等值级别), icons:Array(每个等级的图标)} config 
+     *
+     * @param {style:Object(样式), nums:Int(个数), breaks:Array(等值级别), icons:Array(每个等级的图标)} config
      */
     initialize: function (config) {
+        this.layerType="isoLayer";
         this.myGroup = [];
         this.isoline_layer = [];
         this.cfg = config;
@@ -87,7 +88,7 @@ var IsolineOverlay = L.Layer.extend({
 
     /**
      * 设置数据
-     * @param {数据} data 
+     * @param {数据} data
      */
     setData: function (data) {
         this.data = data;
@@ -95,10 +96,20 @@ var IsolineOverlay = L.Layer.extend({
 
     /**
      * 添加数据
-     * @param {数据} data 
+     * @param {数据} data
      */
     addData: function (data) {
         this.data.push(data);
+        this._draw(data);
+    },
+    /**
+     * 更新数据
+     * @param {数据} data
+     */
+    resetData: function(data){
+        this.layers = [];
+        this.myGroup.clearLayers();
+        this.setData(data);
         this._draw(data);
     }
 });
