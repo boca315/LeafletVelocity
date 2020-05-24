@@ -220,7 +220,7 @@ input[type="range"]:active::-webkit-slider-thumb:after {
     list-style: none;
     display: inline-block;
     flex-grow:1;
-    color: #ffffff;
+    color: #000;
     text-align: right;
     /*border-right: 1px solid black;*/
     /*padding: 5px 0 0 0;!*top right botm left*!*/
@@ -258,9 +258,10 @@ button{
     border-width: 0px 0px 0px 15px;
 }
 .range{
-    float:right;
+    /*float:right;*/
     margin-top: 15px;
 }
 .range-labels{
-    margin-top: 15px;
+    /*margin-top: 15px;*/
+    color:#000;
 }

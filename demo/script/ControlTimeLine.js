@@ -148,10 +148,26 @@ L.Control.TimeLineSlider = L.Control.extend({
 
         /* When input gets changed change styles on slider and trigger user's changeMap function */
         L.DomEvent.on(this.rangeInput, "input", function(e) {
-            // if(this.value==1|| that.isPlaying) {
+            if(this.value==1|| that.isPlaying) {
                 let curValue = this.value;
                 let toValue = Math.ceil(curValue / 100) * 100
 
+                that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
+                var curLabel = that.rangeLabelArray[curValue - 1].innerHTML;
+
+                // Change map according to either current label or value chosen
+                mapParams = {value: curValue, label: curLabel, map: map}
+                allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
+                that.options.changeMap(allChangeMapParameters);
+                this.curValue = this.value;
+                that.lastValue = this.curValue;
+            }else{
+                e.preventDefault();
+                let curValue = this.value;
+                let toValue = Math.ceil(curValue / 100) * 100
+                for (let i = that.lastValue; i <= curValue; i++) {
+                    $('#rangeinputslide')[0].value=i;
+                }
                 that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
                 var curLabel = that.rangeLabelArray[toValue - 1].innerHTML;
 
@@ -161,23 +177,7 @@ L.Control.TimeLineSlider = L.Control.extend({
                 that.options.changeMap(allChangeMapParameters);
                 this.curValue = this.value;
                 that.lastValue = this.curValue;
-            // }else{
-            //     e.preventDefault();
-            //     let curValue = this.value;
-            //     let toValue = Math.ceil(curValue / 100) * 100
-            //     for (let i = that.lastValue; i <= curValue; i++) {
-            //         $('#rangeinputslide')[0].value=i;
-            //     }
-            //     that.sheet.textContent += that.getTrackStyle(this, that.sliderLength);
-            //     var curLabel = that.rangeLabelArray[toValue - 1].innerHTML;
-            //
-            //     // Change map according to either current label or value chosen
-            //     mapParams = {value: toValue, label: curLabel, map: map}
-            //     allChangeMapParameters = {...mapParams, ...that.options.extraChangeMapParams};
-            //     that.options.changeMap(allChangeMapParameters);
-            //     this.curValue = this.value;
-            //     that.lastValue = this.curValue;
-            // }
+            }
 
         });
 
@@ -330,9 +330,9 @@ getDataAddMarkers = function( {label, value, map, exclamation} ) {
             } else {//reset layer's data
                 let file = '';
                 if (layer.layerType !== undefined) {
-                    if (layer.layerType === "heatLayer") { // heatmap 热力图
-                        heatLayerChangeTest(layer, value, file)
-                    }
+                    // if (layer.layerType === "heatLayer") { // heatmap 热力图
+                    //     heatLayerChangeTest(layer, value, file)
+                    // }
                     if (layer.layerType === "bubbleLayer") { //AQI
                         bubbleLayerChangeTest(layer, value, file)
                     }
@@ -353,10 +353,10 @@ getDataAddMarkers = function( {label, value, map, exclamation} ) {
 velocityLayerChangeTest=function(layer,value,file){
     switch((value/100)%2) {
         case 0:
-            file='../data/wind1.json'
+            file='../data/wind2.json'
             break;
         case 1:
-            file='../data/wind2.json'
+            file='../data/wind1.json'
             break;
         default:
             break;
@@ -368,28 +368,36 @@ velocityLayerChangeTest=function(layer,value,file){
 };
 idwLayerChangeTest=function(layer,value,file){
     // console.log((value/10)%2);
+    // let filenext='';//DATA FOR CACHE
     switch((value/100)%2) {
         case 0:
             file='../data/c-test.json'
+            // filenext='../data/c-test1.json'
             break;
         case 1:
             file='../data/c-test1.json'
+            // filenext='../data/c-test.json'
             break;
         default:
             break;
     }
     console.log(file);
     $.getJSON(file, function (data) {
-        layer.resetData(data);
+        layer.resetData(value,data);
     });
+    // $.getJSON(filenext, function (data) {
+    //     layer.cacheNextData(data);
+    // });
 };
 bubbleLayerChangeTest=function(layer,value,file){ // 1对3 4 不对
+    /**
+    * **/
     switch((value/100)%2) {
         case 0:
-            file='../data/bubble-test.json'
+            file='http://120.27.223.134:8080/normal?param=PM10&date=11/1/2019&hour=12'
             break;
         case 1:
-            file='../data/bubbledata.json'
+            file='http://120.27.223.134:8080/normal?param=SO2&date=11/1/2019&hour=12'
             break;
         default:
             break;

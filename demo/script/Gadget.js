@@ -1,3 +1,4 @@
+// 小工具
 // Mercator-based Coordinate Reference System（CRS）
 var marker = L.marker([39.13, 117.2])
 // .addTo(map);
@@ -36,7 +37,7 @@ var data = [];
 function f(current) {
     if (current.districts.length != 0) {
         data.push({ "loc": [parseFloat(current.center.split(",")[1]), parseFloat(current.center.split(",")[0])], "title": current.name });
-        for (var i in current.districts) {
+        for (var i = 0; i < current.districts.length; i++) {
             f(current.districts[i]);
         }
     }
@@ -45,7 +46,7 @@ function f(current) {
     }
 }
 
-for (var i in rawData) {
+for (var i = 0; i < rawData.length; i++) {
     // [纬度,经度]
     f(rawData[i]);
 }
@@ -77,13 +78,12 @@ map.addControl(controlSearch);
 
 
 // 小工具
-
 var GadgetMarker = L.Icon.extend({
     options: {
         shadowUrl: null,
         iconAnchor: new L.Point(12, 12),
         iconSize: new L.Point(24, 24),
-        iconUrl: 'images/site.png'
+        iconUrl: '../demo/images/site.png'
     }
 });
 var gadgetMarkerIcon = new GadgetMarker();
@@ -137,6 +137,40 @@ map.addControl(new L.Control.Draw(options));
 var on_compute_click = 0;
 // var gadget_popup = null;
 
+// 附近站点显示的icon
+var siteIcon = L.Icon.extend({
+    options: {
+        iconUrl: '../demo/images/site_line.png',
+        iconSize: [120, 120],
+    }
+});
+
+// 点击坐标，弹出附近站点，点击附近站点，弹出计算框
+// latlng: 经纬度，为附近站点的位置
+// 
+function siteAndPopup(latlng, data) {
+    // 调用弹窗功能
+    var mySiteMarker = L.marker(latlng, {
+        icon: new siteIcon()
+        // draggable: true,//Allow label dragging...?
+        // zIndexOffset: 1000//Make appear 上面 other map features
+    }).addTo(map);
+    // 常规六项的值
+    // 时
+    // 'SO2', 'NO2', 'PM10', 'CO', 'O3', 'PM2.5'
+    var hour_data = [data.so2, data.no2, data.pm10, data.co, data.o3, data.pm25];
+    // 日
+    var day_data = [data.so2_24h, data.no2_24h, data.pm10_24h, data.co_24h, data.o3_24h, data.pm25_24h];
+
+    // 点击附近站点
+    mySiteMarker.on('click', function (e) {
+        this.remove();
+        // 打开计算弹窗
+        popupComput(latlng, hour_data, day_data);
+    })
+}
+
+// 计算弹窗功能
 map.on(L.Draw.Event.CREATED, function (event) {
     var gadget_layer = event.layer;
     var gadget_type = event.layerType;
@@ -146,31 +180,36 @@ map.on(L.Draw.Event.CREATED, function (event) {
     if (gadget_type === 'marker') {
         // 点击之后出现计算框
         gadget_layer.on('click', function () {
-            var latlng_tmp = gadget_layer._latlng.lat * gadget_layer._latlng.lng;
-            if (on_compute_click == 0) {
-                on_compute_click = latlng_tmp; // 用经纬度标记layer的唯一性
-                // 调用弹窗功能
-                popupComput(gadget_layer._latlng);
-            } else if (Math.abs(on_compute_click - latlng_tmp) <= Number.EPSILON) {
-                // 经纬度相同，表示重复点击站点
-                // 保持不变
-                console.log('hh')
-                console.log(on_compute_click)
-                console.log(latlng_tmp)
-            } else {
-                // 经纬度不同，表示点击了别的站点
-                // 更新click的经纬度值
-                console.log('hhh')
-                console.log(on_compute_click)
-                console.log(latlng_tmp)
-                on_compute_click = latlng_tmp;
-                var gadget_popup = document.getElementsByClassName('compute-popup-max')[0];
-                // 把原来的计算弹窗关掉
-                gadget_popup.remove();
-                // 获得新的弹窗
-                gadget_popup = popupComput(gadget_layer._latlng);
-            }
+            var popup_url = baseurl + "/citycositionandcondition/judgecondition?lon=" + gadget_layer._latlng.lng + "&lat=" + gadget_layer._latlng.lat + " &date=" + now_date;
+            $.getJSON(popup_url, function (data) {
+                // 经纬度
+                var site_lon = data.position.lon;
+                var site_lat = data.position.lat;
+                var latlng = {
+                    lat: site_lat,
+                    lng: site_lon
+                };
+                var latlng_tmp = site_lat * site_lon;
+
+                if (on_compute_click == 0) {
+                    on_compute_click = latlng_tmp; // 用经纬度标记layer的唯一性
+                    // 调用弹窗功能
+                    siteAndPopup(latlng, data.condition)
+                } else if (Math.abs(on_compute_click - latlng_tmp) <= Number.EPSILON) {
+                    // 经纬度相同，表示重复点击站点
+                    // 保持不变
+                } else {
+                    // 经纬度不同，表示点击了别的站点
+                    // 更新click的经纬度值
+                    on_compute_click = latlng_tmp;
+                    var gadget_popup = document.getElementsByClassName('compute-popup-max')[0];
+                    // 把原来的计算弹窗关掉
+                    gadget_popup.remove();
+                    // 获得新的弹窗
+                    siteAndPopup(latlng, data.condition)
+                    //gadget_popup = popupComput(latlng);
+                }
+            });
         })
     }
-
 });
